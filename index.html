@@ -3,256 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav Machireddy | Complete Portfolio with Certificates & Memories</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Complete portfolio of Pranav Machireddy featuring certificates upload, events management, and memories gallery with full interactive features">
-    <meta name="keywords" content="Full-Stack Developer, Portfolio, Certificates, Events, Memories, AI/ML, Python, Java, Web Development">
+    <title>Pranav Machireddy | Full-Stack Developer & AI Enthusiast</title>
+    <meta name="description" content="Professional portfolio showcasing projects, certificates, and achievements">
+    <meta name="keywords" content="Full-Stack Developer, AI/ML, Cybersecurity, Python, Web Development">
     <meta name="author" content="Pranav Machireddy">
-    <meta property="og:title" content="Pranav Machireddy | Complete Interactive Portfolio">
-    <meta property="og:description" content="Professional portfolio with certificate management, event tracking, and memories gallery">
-    <meta property="og:image" content="P:\HTML\meditation website\html project\Pictures\pranav.jpg>
-    <meta property="og:url" content="https://pranav-machireddy-portfolio.com">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
     
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- Local CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* Additional inline styles for specific elements */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-        
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .preloader-content {
-            text-align: center;
-        }
-        
-        .preloader-spinner {
-            width: 70px;
-            height: 70px;
-            border: 4px solid rgba(99, 102, 241, 0.3);
-            border-top-color: #6366f1;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .preloader-text {
-            font-family: 'JetBrains Mono', monospace;
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-        
-        .preloader-progress {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-        
-        .preloader-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-    </style>
 </head>
 <body>
     <!-- Preloader -->
-    <div class="preloader" id="preloader">
+    <div class="preloader">
         <div class="preloader-content">
-            <div class="preloader-spinner"></div>
-            <div class="preloader-text">Loading Portfolio System</div>
-            <div class="preloader-progress">
-                <div class="preloader-bar" id="preloaderBar"></div>
+            <div class="preloader-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-text">Loading Portfolio...</div>
             </div>
-            <div class="preloader-stats" style="margin-top: 15px; font-size: 0.9rem; color: #64748b;">
-                Initializing: <span id="initStep">Components</span>
+            <div class="preloader-progress">
+                <div class="progress-bar" id="preloaderProgress"></div>
             </div>
         </div>
     </div>
 
-    <!-- Quick Action Buttons -->
-    <div class="quick-actions">
-        <button class="quick-action-btn" id="quickUpload" title="Quick Upload">
-            <i class="fas fa-cloud-upload-alt"></i>
-        </button>
-        <button class="quick-action-btn" id="quickAddEvent" title="Add New Event">
-            <i class="fas fa-calendar-plus"></i>
-        </button>
-        <button class="quick-action-btn" id="quickAddMemory" title="Add Memory">
-            <i class="fas fa-camera"></i>
-        </button>
-        <button class="quick-action-btn" id="quickContact" title="Quick Contact">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
+    <!-- Notification Container -->
+    <div id="notificationContainer"></div>
 
-    <!-- Main Navigation -->
-    <nav class="navbar" id="navbar">
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="logo">
-                    <span class="logo-text">PM</span>
-                </div>
-                <span class="brand-name">Pranav<span class="accent">.</span>Portfolio</span>
-            </div>
-            
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active" data-section="home">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#about" class="nav-link" data-section="about">
-                    <i class="fas fa-user"></i>
-                    <span>About</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#skills" class="nav-link" data-section="skills">
-                    <i class="fas fa-code"></i>
-                    <span>Skills</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#certificates" class="nav-link" data-section="certificates">
-                    <i class="fas fa-certificate"></i>
-                    <span>Certificates</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#events" class="nav-link" data-section="events">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Events</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#memories" class="nav-link" data-section="memories">
-                    <i class="fas fa-images"></i>
-                    <span>Memories</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#projects" class="nav-link" data-section="projects">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>Projects</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <a href="#contact" class="nav-link" data-section="contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact</span>
-                    <div class="nav-link-indicator"></div>
-                </a>
-                
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    
-                    <div class="user-menu">
-                        <button class="user-toggle" id="userToggle" title="User Menu">
-                            <i class="fas fa-user-circle"></i>
-                        </button>
-                        <div class="user-dropdown">
-                            <a href="#profile" class="user-dropdown-item">
-                                <i class="fas fa-user-edit"></i> Edit Profile
-                            </a>
-                            <a href="#settings" class="user-dropdown-item">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                            <a href="#privacy" class="user-dropdown-item">
-                                <i class="fas fa-shield-alt"></i> Privacy
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#logout" class="user-dropdown-item logout">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                        </div>
+                    <div class="logo-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Pranav</span>
+                        <span class="logo-title">Machireddy</span>
                     </div>
                 </div>
             </div>
-            
-            <button class="nav-toggle" id="navToggle">
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
-            </button>
+
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-code-branch"></i> Projects</a></li>
+                    <li class="nav-item"><a href="#github-projects" class="nav-link"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li class="nav-item"><a href="#certificates" class="nav-link"><i class="fas fa-certificate"></i> Certificates</a></li>
+                    <li class="nav-item"><a href="#memories" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section id="home" class="hero">
         <div class="hero-background">
-            <div class="particles-container" id="particles"></div>
-            <div class="gradient-overlay"></div>
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
         </div>
-        
-        <div class="hero-container">
+
+        <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-rocket"></i>
-                    <span>Welcome to Interactive Portfolio v3.0</span>
+                <div class="hero-badge fade-in">
+                    <span class="badge-text">🚀 Available for Opportunities</span>
                 </div>
-                
-                <h1 class="hero-title">
-                    <span class="hero-title-line">Hello, I'm</span>
-                    <span class="hero-title-name gradient-text">Pranav Machireddy</span>
-                    <span class="hero-title-line">Full-Stack Developer & AI Enthusiast</span>
-                </h1>
-                
-                <p class="hero-description">
-                    Computer Science student passionate about building innovative solutions. 
-                    This portfolio features <strong>Certificate Management</strong>, 
-                    <strong>Event Tracking</strong>, and <strong>Memories Gallery</strong> 
-                    with interactive upload capabilities.
-                </p>
-                
-                <div class="hero-stats">
+
+                <div class="hero-main">
+                    <div class="hero-text">
+                        <h4 class="hero-subtitle fade-in">Hello, I'm</h4>
+                        <h1 class="hero-title slide-in-left">
+                            <span class="gradient-text">Pranav Machireddy</span>
+                        </h1>
+                        <h2 class="hero-role slide-in-right">
+                            <span class="typing-text" id="typingText"></span>
+                            <span class="cursor">|</span>
+                        </h2>
+                        <p class="hero-description fade-in">
+                            Full-Stack Developer • AI/ML Enthusiast • Cybersecurity Researcher<br>
+                            B.Tech Computer Science @ Amrita University | Seeking Internship Opportunities
+                        </p>
+                        
+                        <div class="hero-actions fade-in">
+                            <button type="button" class="btn btn-primary" onclick="scrollToSection('projects')" title="View Projects">
+                                <i class="fas fa-rocket"></i> View Projects
+                            </button>
+                            <button type="button" class="btn btn-outline" onclick="downloadResume()" title="Download CV">
+                                <i class="fas fa-download"></i> Download CV
+                            </button>
+                            <button type="button" class="btn btn-ghost" onclick="scrollToSection('contact')" title="Hire Me">
+                                <i class="fas fa-paper-plane"></i> Hire Me
+                            </button>
+                        </div>
+
+                        <div class="hero-social fade-in">
+                            <a href="https://github.com/Pranava-M" target="_blank" rel="noopener" class="social-icon" title="GitHub Profile">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/pranav-machireddy-554163311" target="_blank" rel="noopener" class="social-icon" title="LinkedIn Profile">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://instagram.com/p_r_a_n_a_v___m" target="_blank" rel="noopener" class="social-icon" title="Instagram Profile">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:machireddy12@gmail.com" class="social-icon" title="Send Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image slide-in-right">
+                        <div class="image-wrapper">
+                            <!-- Update this path to your actual image -->
+                            <img src="P:\HTML\meditation website\html project\Pictures\pranav.jpg" alt="Pranav Machireddy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-frame"></div>
+                            <div class="image-dots">
+                                <div class="dot dot-1"></div>
+                                <div class="dot dot-2"></div>
+                                <div class="dot dot-3"></div>
+                            </div>
+                        </div>
+                        <div class="image-badge">
+                            <div class="badge-content">
+                                <i class="fas fa-code"></i>
+                                <span>Full-Stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-stats fade-in">
                     <div class="stat-item">
                         <div class="stat-number" data-count="25">0</div>
                         <div class="stat-label">Projects</div>
@@ -262,241 +168,117 @@
                         <div class="stat-label">Certificates</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-count="8">0</div>
-                        <div class="stat-label">Events</div>
+                        <div class="stat-number" data-count="3">0+</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" data-count="50">0</div>
-                        <div class="stat-label">Memories</div>
-                    </div>
-                </div>
-                
-                <div class="hero-actions">
-                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('certificates')">
-                        <i class="fas fa-upload"></i> Upload Certificates
-                    </button>
-                    <button class="btn btn-outline btn-lg" onclick="scrollToSection('events')">
-                        <i class="fas fa-plus-circle"></i> Add Events
-                    </button>
-                    <button class="btn btn-ghost btn-lg" onclick="scrollToSection('memories')">
-                        <i class="fas fa-camera"></i> Add Memories
-                    </button>
-                </div>
-                
-                <div class="hero-features">
-                    <div class="feature-card">
-                        <i class="fas fa-cloud-upload-alt feature-icon"></i>
-                        <h4>Certificate Upload</h4>
-                        <p>Upload and manage your certificates</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-calendar-plus feature-icon"></i>
-                        <h4>Event Management</h4>
-                        <p>Track and add events & conferences</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-images feature-icon"></i>
-                        <h4>Memories Gallery</h4>
-                        <p>Create your professional journey gallery</p>
+                        <div class="stat-label">Clients</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="hero-visual">
-                <div class="floating-card code-card">
-                    <div class="card-header">
-                        <div class="card-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="card-title">portfolio.js</span>
-                    </div>
-                    <div class="card-content">
-                        <pre><code class="language-javascript">
-// Portfolio System Configuration
-const portfolio = {
-    version: "3.0.0",
-    features: {
-        certificates: {
-            upload: true,
-            manage: true,
-            categories: ["Academic", "Professional", "Online", "Workshop"]
-        },
-        events: {
-            create: true,
-            calendar: true,
-            reminders: true
-        },
-        memories: {
-            gallery: true,
-            albums: true,
-            tags: true
-        }
-    },
-    user: {
-        name: "Pranav Machireddy",
-        role: "Full-Stack Developer",
-        status: "active"
-    }
-};
-
-// Initialize Portfolio System
-portfolio.init();
-                        </code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll to explore</span>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="section-container">
+    <section id="about" class="section about">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">About</span>
-                    <span class="section-title-accent">Me</span>
-                </h2>
-                <p class="section-subtitle">Learn about my journey, skills, and passion for technology</p>
+                <h4 class="section-subtitle">Get To Know</h4>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <div class="section-line"></div>
             </div>
-            
-            <div class="about-grid">
-                <div class="about-card profile-card">
-                    <div class="profile-image-container">
-                        <img src="P:\HTML\meditation website\html project\Pictures\pranav.jpg" 
-                             alt="Pranav Machireddy" class="profile-image">
-                        <div class="profile-status">
-                            <span class="status-indicator active"></span>
-                            <span class="status-text">Available for Opportunities</span>
-                        </div>
-                    </div>
-                    
-                    <div class="profile-info">
-                        <h3 class="profile-name">Pranav Machireddy</h3>
-                        <p class="profile-title">Full-Stack Developer</p>
-                        
-                        <div class="profile-details">
-                            <div class="detail-item">
-                                <i class="fas fa-graduation-cap detail-icon"></i>
-                                <div class="detail-content">
-                                    <span class="detail-label">Education</span>
-                                    <span class="detail-value">B.Tech CSE @ Amrita University</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt detail-icon"></i>
-                                <div class="detail-content">
-                                    <span class="detail-label">Location</span>
-                                    <span class="detail-value">Amrita University, India</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <i class="fas fa-envelope detail-icon"></i>
-                                <div class="detail-content">
-                                    <span class="detail-label">Email</span>
-                                    <span class="detail-value">machireddy12@gmail.com</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <i class="fas fa-phone detail-icon"></i>
-                                <div class="detail-content">
-                                    <span class="detail-label">Phone</span>
-                                    <span class="detail-value">+91 9177740126</span>
-                                </div>
+
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div class="image-container">
+                        <!-- Update this path to your actual image -->
+                        <img src="P:\HTML\meditation website\html project\Pictures\pranav.jpg" alt="Pranav Machireddy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3>Let's Connect!</h3>
+                                <p>Available for collaborations</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="about-card bio-card">
-                    <h3 class="card-title">My Journey</h3>
-                    <div class="bio-content">
-                        <p>I'm a passionate Computer Science student at Amrita University with a deep interest in software development, artificial intelligence, and cybersecurity. My journey began with C programming and has evolved into full-stack web development and AI projects.</p>
-                        
-                        <p>I believe in building solutions that make a difference. Whether it's developing intelligent systems or creating user-friendly applications, I'm always excited to tackle new challenges and learn emerging technologies.</p>
-                        
-                        <div class="bio-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-check-circle highlight-icon"></i>
-                                <span>5+ Years Programming Experience</span>
+
+                <div class="about-info fade-in">
+                    <div class="info-header">
+                        <h3>Full-Stack Developer & AI Enthusiast</h3>
+                        <p>I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive.</p>
+                    </div>
+
+                    <div class="info-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>B.Tech CSE @ Amrita University</p>
+                                <span>2024-2028 | CGPA: 7.5/10</span>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-check-circle highlight-icon"></i>
-                                <span>25+ Projects Completed</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>India, Remote</p>
+                                <span>Available for Remote Work</span>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-check-circle highlight-icon"></i>
-                                <span>Active Open Source Contributor</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>machireddy12@gmail.com</p>
+                                <span>Reply within 24 hours</span>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-check-circle highlight-icon"></i>
-                                <span>Seeking Internship Opportunities</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9177740126</p>
+                                <span>Mon-Fri, 9AM-6PM</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="bio-actions">
-                        <button class="btn btn-primary" onclick="downloadResume()">
-                            <i class="fas fa-download"></i> Download CV
-                        </button>
-                        <button class="btn btn-outline" onclick="scrollToSection('contact')">
-                            <i class="fas fa-paper-plane"></i> Contact Me
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-section">
-                <h3 class="timeline-title">Education & Experience Timeline</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 - Present</div>
-                        <div class="timeline-content">
-                            <h4>B.Tech Computer Science</h4>
-                            <p class="timeline-subtitle">Amrita Vishwa Vidyapeetham University</p>
-                            <p>Pursuing Bachelor's in Computer Science with focus on software engineering, AI/ML, and cybersecurity.</p>
-                            <div class="timeline-tags">
-                                <span class="tag">CGPA: 7.5/10</span>
-                                <span class="tag">Active Student</span>
+
+                    <div class="about-skills">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Python Development</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025</div>
-                        <div class="timeline-content">
-                            <h4>AI/ML Projects</h4>
-                            <p class="timeline-subtitle">Hand Gesture Recognition System</p>
-                            <p>Developed real-time hand gesture recognition using OpenCV and MediaPipe for volume control.</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">OpenCV</span>
-                                <span class="tag">MediaPipe</span>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Web Development</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-content">
-                            <h4>C Programming Certification</h4>
-                            <p class="timeline-subtitle">Infotech Computers</p>
-                            <p>Completed comprehensive C programming course covering fundamentals to advanced concepts.</p>
-                            <div class="timeline-tags">
-                                <span class="tag">C Programming</span>
-                                <span class="tag">Data Structures</span>
-                                <span class="tag">Certified</span>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>AI/ML</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Cybersecurity</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
                             </div>
                         </div>
                     </div>
@@ -506,539 +288,215 @@ portfolio.init();
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <div class="section-container">
+    <section id="skills" class="section skills">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Technical</span>
-                    <span class="section-title-accent">Skills</span>
-                </h2>
-                <p class="section-subtitle">Technologies, frameworks, and tools I work with</p>
+                <h4 class="section-subtitle">My Technical</h4>
+                <h2 class="section-title">Skills <span class="gradient-text">& Expertise</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">Technologies, frameworks, and tools I work with</p>
             </div>
-            
-            <div class="skills-categories">
-                <!-- Programming Languages -->
-                <div class="category-card">
-                    <div class="category-header">
-                        <i class="fas fa-code category-icon"></i>
-                        <h3 class="category-title">Programming Languages</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                            <div class="skill-percentage">85%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Java</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75"></div>
-                            </div>
-                            <div class="skill-percentage">75%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="70"></div>
-                            </div>
-                            <div class="skill-percentage">70%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">C Programming</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80"></div>
-                            </div>
-                            <div class="skill-percentage">80%</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Web Technologies -->
-                <div class="category-card">
-                    <div class="category-header">
-                        <i class="fas fa-globe category-icon"></i>
-                        <h3 class="category-title">Web Technologies</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">HTML5</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                            <div class="skill-percentage">90%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">CSS3</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                            <div class="skill-percentage">85%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">React.js</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="65"></div>
-                            </div>
-                            <div class="skill-percentage">65%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="60"></div>
-                            </div>
-                            <div class="skill-percentage">60%</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tools & Frameworks -->
-                <div class="category-card">
-                    <div class="category-header">
-                        <i class="fas fa-tools category-icon"></i>
-                        <h3 class="category-title">Tools & Frameworks</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Git & GitHub</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                            <div class="skill-percentage">85%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">VS Code</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
-                            </div>
-                            <div class="skill-percentage">95%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">OpenCV</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="70"></div>
-                            </div>
-                            <div class="skill-percentage">70%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Flask</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75"></div>
-                            </div>
-                            <div class="skill-percentage">75%</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Database & Cloud -->
-                <div class="category-card">
-                    <div class="category-header">
-                        <i class="fas fa-database category-icon"></i>
-                        <h3 class="category-title">Database & Cloud</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">MySQL</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75"></div>
-                            </div>
-                            <div class="skill-percentage">75%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-level">Beginner</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="50"></div>
-                            </div>
-                            <div class="skill-percentage">50%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">AWS Basics</span>
-                                <span class="skill-level">Beginner</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="40"></div>
-                            </div>
-                            <div class="skill-percentage">40%</div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Docker</span>
-                                <span class="skill-level">Beginner</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="35"></div>
-                            </div>
-                            <div class="skill-percentage">35%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skills-chart">
-                <h3 class="chart-title">Skills Distribution</h3>
-                <div class="chart-container">
-                    <canvas id="skillsChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="certificates-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Certificates &</span>
-                    <span class="section-title-accent">Achievements</span>
-                </h2>
-                <p class="section-subtitle">Professional certifications, awards, and accomplishments</p>
-            </div>
-            
-            <div class="certificates-controls">
-                <div class="filter-tabs">
-                    <button class="filter-tab active" data-filter="all">All Certificates</button>
-                    <button class="filter-tab" data-filter="academic">Academic</button>
-                    <button class="filter-tab" data-filter="professional">Professional</button>
-                    <button class="filter-tab" data-filter="online">Online Courses</button>
-                    <button class="filter-tab" data-filter="workshop">Workshops</button>
-                </div>
-                
-                <div class="sort-options">
-                    <select class="sort-select" id="certificateSort">
-                        <option value="date-desc">Newest First</option>
-                        <option value="date-asc">Oldest First</option>
-                        <option value="name-asc">Name A-Z</option>
-                        <option value="name-desc">Name Z-A</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="certificates-grid" id="certificatesGrid">
-                <!-- Certificates will be dynamically loaded here -->
-            </div>
-            
-            <!-- Upload Certificate Area -->
-            <div class="upload-section">
-                <div class="upload-card" id="uploadCertificateCard">
-                    <div class="upload-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <h3 class="upload-title">Upload New Certificate</h3>
-                    <p class="upload-description">
-                        Upload your certificate image (JPG, PNG, PDF up to 10MB)
-                    </p>
-                    <input type="file" id="certificateUpload" accept=".jpg,.jpeg,.png,.pdf" multiple style="display: none;">
-                    <button class="btn btn-primary upload-btn" onclick="document.getElementById('certificateUpload').click()">
-                        <i class="fas fa-upload"></i> Browse Files
-                    </button>
-                    <p class="upload-hint">or drag and drop files here</p>
-                </div>
-            </div>
-            
-            <!-- Certificate Statistics -->
-            <div class="certificate-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="totalCertificates">0</h3>
-                        <p class="stat-label">Total Certificates</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="thisYearCertificates">0</h3>
-                        <p class="stat-label">This Year</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="academicCertificates">0</h3>
-                        <p class="stat-label">Academic</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="professionalCertificates">0</h3>
-                        <p class="stat-label">Professional</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="events" class="events-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Events &</span>
-                    <span class="section-title-accent">Conferences</span>
-                </h2>
-                <p class="section-subtitle">Tech events, workshops, and conferences I've attended or spoken at</p>
-            </div>
-            
-            <div class="events-calendar">
-                <div class="calendar-header">
-                    <button class="calendar-nav prev-month">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <h3 class="current-month" id="currentMonth">December 2024</h3>
-                    <button class="calendar-nav next-month">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                <div class="calendar-grid" id="calendarGrid">
-                    <!-- Calendar will be dynamically generated -->
-                </div>
-            </div>
-            
-            <div class="events-list">
-                <h3 class="events-list-title">Upcoming & Past Events</h3>
-                <div class="events-container" id="eventsContainer">
-                    <!-- Events will be dynamically loaded here -->
-                </div>
-            </div>
-            
-            <!-- Add Event Button -->
-            <div class="add-event-section">
-                <button class="add-event-btn" id="addEventBtn">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Add New Event</span>
-                </button>
-            </div>
-            
-            <!-- Event Statistics -->
-            <div class="event-stats">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="totalEvents">0</h4>
-                        <p class="stat-label">Total Events</p>
-                    </div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="speakerEvents">0</h4>
-                        <p class="stat-label">As Speaker</p>
-                    </div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="workshopEvents">0</h4>
-                        <p class="stat-label">Workshops</p>
-                    </div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="upcomingEvents">0</h4>
-                        <p class="stat-label">Upcoming</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Memories Section -->
-    <section id="memories" class="memories-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Memories</span>
-                    <span class="section-title-accent">Gallery</span>
-                </h2>
-                <p class="section-subtitle">Special moments from my professional journey and personal growth</p>
-            </div>
-            
-            <!-- Memory Categories -->
-            <div class="memory-categories">
-                <button class="category-btn active" data-category="all">
-                    <i class="fas fa-images"></i> All Memories
-                </button>
-                <button class="category-btn" data-category="events">
-                    <i class="fas fa-calendar-alt"></i> Events
-                </button>
-                <button class="category-btn" data-category="projects">
-                    <i class="fas fa-code"></i> Projects
-                </button>
-                <button class="category-btn" data-category="team">
-                    <i class="fas fa-users"></i> Team
-                </button>
-                <button class="category-btn" data-category="travel">
-                    <i class="fas fa-plane"></i> Travel
-                </button>
-                <button class="category-btn" data-category="achievements">
-                    <i class="fas fa-trophy"></i> Achievements
-                </button>
-            </div>
-            
-            <!-- Memories Grid -->
-            <div class="memories-grid" id="memoriesGrid">
-                <!-- Memories will be dynamically loaded here -->
-            </div>
-            
-            <!-- Upload Memory Area -->
-            <div class="memory-upload">
-                <div class="upload-container">
-                    <div class="upload-box" id="memoryUploadBox">
-                        <div class="upload-content">
-                            <i class="fas fa-cloud-upload-alt upload-main-icon"></i>
-                            <h3>Upload Your Memories</h3>
-                            <p>Drag & drop images or click to browse</p>
-                            <div class="upload-formats">
-                                <span class="format-tag">JPG</span>
-                                <span class="format-tag">PNG</span>
-                                <span class="format-tag">GIF</span>
-                                <span class="format-tag">MP4</span>
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <!-- Programming Languages -->
+                    <div class="skill-category fade-in">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Programming Languages</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Java</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="70"></div>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>C Programming</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="80"></div>
+                                    <span class="skill-percent">80%</span>
+                                </div>
                             </div>
                         </div>
-                        <input type="file" id="memoryUpload" accept="image/*,video/*" multiple style="display: none;">
                     </div>
-                    
-                    <div class="upload-options">
-                        <div class="option-card">
-                            <i class="fas fa-camera option-icon"></i>
-                            <h4>Quick Photo</h4>
-                            <p>Take a photo directly</p>
-                            <button class="option-btn" id="takePhotoBtn">
-                                <i class="fas fa-camera"></i> Take Photo
-                            </button>
+
+                    <!-- Web Technologies -->
+                    <div class="skill-category fade-in" data-delay="100">
+                        <div class="category-header">
+                            <i class="fas fa-globe"></i>
+                            <h3>Web Technologies</h3>
                         </div>
-                        
-                        <div class="option-card">
-                            <i class="fas fa-folder-open option-icon"></i>
-                            <h4>Create Album</h4>
-                            <p>Organize in albums</p>
-                            <button class="option-btn" id="createAlbumBtn">
-                                <i class="fas fa-plus"></i> New Album
-                            </button>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML5</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="90"></div>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>CSS3</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React.js</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="65"></div>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Node.js</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="60"></div>
+                                    <span class="skill-percent">60%</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Memory Statistics -->
-            <div class="memory-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-images"></i>
+
+                    <!-- Tools & Frameworks -->
+                    <div class="skill-category fade-in" data-delay="200">
+                        <div class="category-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Tools & Frameworks</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git & GitHub</span>
+                                    <span>Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>VS Code</span>
+                                    <span>Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="95"></div>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>OpenCV</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="70"></div>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Flask</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="totalMemories">0</h3>
-                        <p class="stat-label">Total Memories</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-photo-video"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="photosCount">0</h3>
-                        <p class="stat-label">Photos</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="videosCount">0</h3>
-                        <p class="stat-label">Videos</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-folder"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" id="albumsCount">0</h3>
-                        <p class="stat-label">Albums</p>
+
+                    <!-- Database & Cloud -->
+                    <div class="skill-category fade-in" data-delay="300">
+                        <div class="category-header">
+                            <i class="fas fa-database"></i>
+                            <h3>Database & Cloud</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MySQL</span>
+                                    <span>Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MongoDB</span>
+                                    <span>Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="50"></div>
+                                    <span class="skill-percent">50%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>AWS Basics</span>
+                                    <span>Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="40"></div>
+                                    <span class="skill-percent">40%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Docker</span>
+                                    <span>Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="35"></div>
+                                    <span class="skill-percent">35%</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1046,212 +504,379 @@ portfolio.init();
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="section-container">
+    <section id="projects" class="section projects">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Featured</span>
-                    <span class="section-title-accent">Projects</span>
-                </h2>
-                <p class="section-subtitle">Hand-picked projects showcasing my skills and expertise</p>
+                <h4 class="section-subtitle">Featured</h4>
+                <h2 class="section-title">Projects <span class="gradient-text">& Work</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">My best work and creations</p>
             </div>
-            
-            <div class="projects-filters">
+
+            <div class="project-filters fade-in">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="ai">AI/ML</button>
                 <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-                <button class="filter-btn" data-filter="game">Games</button>
                 <button class="filter-btn" data-filter="cyber">Cybersecurity</button>
             </div>
-            
+
             <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be dynamically loaded here -->
+                <!-- Projects will be loaded dynamically from GitHub and localStorage -->
             </div>
-            
-            <div class="projects-actions">
-                <button class="btn btn-outline" id="loadMoreProjects">
-                    <i class="fas fa-sync-alt"></i> Load More Projects
-                </button>
-                <a href="https://github.com/Pranava-M" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-github"></i> View All on GitHub
-                </a>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="github-projects" class="section github-projects">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">GitHub</h4>
+                <h2 class="section-title">Repositories <span class="gradient-text">& Code</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">My public repositories from GitHub</p>
+            </div>
+
+            <div class="github-stats fade-in">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="githubReposCount">0</h3>
+                        <p>Public Repositories</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="githubStarsCount">0</h3>
+                        <p>Total Stars</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="githubForksCount">0</h3>
+                        <p>Total Forks</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="githubLanguagesCount">0</h3>
+                        <p>Languages Used</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="github-filters fade-in">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="githubSearch" placeholder="Search repositories...">
+                </div>
+                <select id="githubSort" title="Sort repositories">
+                    <option value="updated">Recently Updated</option>
+                    <option value="stars">Most Stars</option>
+                    <option value="forks">Most Forks</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+
+            <div class="github-repos-grid" id="githubReposGrid">
+                <!-- GitHub repos will be loaded here -->
+            </div>
+
+            <div class="github-loading fade-in" id="githubLoading">
+                <div class="loading-spinner"></div>
+                <p>Loading GitHub repositories...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section certificates">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">Professional</h4>
+                <h2 class="section-title">Certificates <span class="gradient-text">& Achievements</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">Professional certifications, awards, and accomplishments</p>
+            </div>
+
+            <div class="certificates-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All Certificates</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+                <button class="filter-btn" data-filter="professional">Professional</button>
+                <button class="filter-btn" data-filter="courses">Online Courses</button>
+            </div>
+
+            <div class="certificates-stats fade-in">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="certCount">0</h3>
+                        <p>Total Certificates</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="certThisYear">0</h3>
+                        <p>This Year</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="certAcademic">0</h3>
+                        <p>Academic</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="certProfessional">0</h3>
+                        <p>Professional</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certificates-grid" id="certificatesGrid">
+                <!-- Certificates will be loaded dynamically -->
+            </div>
+
+            <div class="upload-section fade-in">
+                <div class="upload-container">
+                    <div class="upload-header">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload New Certificate</h3>
+                    </div>
+                    <p class="upload-description">Upload your certificate image (JPG, PNG, PDF up to 10MB)</p>
+                    <div class="upload-area" id="certificateUploadArea">
+                        <i class="fas fa-file-upload"></i>
+                        <p>Drag & drop files here or click to browse</p>
+                        <input type="file" id="certificateFile" accept=".jpg,.jpeg,.png,.pdf" hidden multiple>
+                        <button class="btn btn-outline" onclick="document.getElementById('certificateFile').click()">
+                            Choose files
+                        </button>
+                        <div class="upload-info" id="certificateFileInfo">No files chosen</div>
+                    </div>
+                    <div class="upload-formats">
+                        <span class="format-tag">JPG</span>
+                        <span class="format-tag">PNG</span>
+                        <span class="format-tag">PDF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Gallery -->
+    <section id="memories" class="section memories">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">Memories</h4>
+                <h2 class="section-title">Gallery <span class="gradient-text">& Albums</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">Special moments from my professional journey and personal growth</p>
+            </div>
+
+            <div class="memories-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All Memories</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="projects">Projects</button>
+                <button class="filter-btn" data-filter="achievements">Achievements</button>
+            </div>
+
+            <div class="memories-stats fade-in">
+                <div class="stat-item">
+                    <div class="stat-number" id="memoryCount">0</div>
+                    <div class="stat-label">Total Memories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="photoCount">0</div>
+                    <div class="stat-label">Photos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="videoCount">0</div>
+                    <div class="stat-label">Videos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="albumCount">0</div>
+                    <div class="stat-label">Albums</div>
+                </div>
+            </div>
+
+            <div class="memories-grid" id="memoriesGrid">
+                <!-- Memories will be loaded dynamically -->
+            </div>
+
+            <div class="upload-section fade-in">
+                <div class="upload-container">
+                    <div class="upload-header">
+                        <i class="fas fa-images"></i>
+                        <h3>Upload Your Memories</h3>
+                    </div>
+                    <div class="upload-options">
+                        <div class="upload-option" onclick="uploadMemory()">
+                            <div class="option-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Drag & Drop</h4>
+                                <p>Upload images or click to browse</p>
+                                <div class="upload-formats">
+                                    <span>JPG</span>
+                                    <span>PNG</span>
+                                    <span>GIF</span>
+                                    <span>MP4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upload-option" onclick="createAlbum()">
+                            <div class="option-content">
+                                <i class="fas fa-folder-plus"></i>
+                                <h4>Create Album</h4>
+                                <p>Organize memories in albums</p>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-plus"></i> New Album
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-container">
+    <section id="contact" class="section contact">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-text">Get In</span>
-                    <span class="section-title-accent">Touch</span>
-                </h2>
-                <p class="section-subtitle">Let's connect and build something amazing together</p>
+                <h4 class="section-subtitle">Get In</h4>
+                <h2 class="section-title">Touch <span class="gradient-text">& Connect</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">Let's connect and build something amazing together</p>
             </div>
-            
+
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info fade-in">
                     <div class="info-card">
-                        <h3 class="info-title">
-                            <i class="fas fa-handshake"></i> Contact Information
-                        </h3>
-                        <p class="info-description">
-                            I'm always open to discussing new opportunities, interesting projects, or just chatting about technology!
-                        </p>
-                        
+                        <div class="card-header">
+                            <h3><i class="fas fa-handshake"></i> Contact Information</h3>
+                            <p>I'm always open to discussing new opportunities, interesting projects, or just chatting about technology!</p>
+                        </div>
+
                         <div class="contact-details">
-                            <div class="contact-item">
-                                <div class="contact-icon">
+                            <div class="detail-item">
+                                <div class="detail-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <div class="contact-content">
+                                <div class="detail-content">
                                     <h4>Email</h4>
-                                    <a href="mailto:machireddy12@gmail.com" class="contact-link">
-                                        machireddy12@gmail.com
-                                    </a>
+                                    <p>machireddy12@gmail.com</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
+                            <div class="detail-item">
+                                <div class="detail-icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <div class="contact-content">
+                                <div class="detail-content">
                                     <h4>Phone</h4>
-                                    <a href="tel:+919177740126" class="contact-link">
-                                        +91 9177740126
-                                    </a>
+                                    <p>+91 9177740126</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
+                            <div class="detail-item">
+                                <div class="detail-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <div class="contact-content">
+                                <div class="detail-content">
                                     <h4>Location</h4>
-                                    <span class="contact-link">Amrita University, India</span>
+                                    <p>Amrita University, India</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
+                            <div class="detail-item">
+                                <div class="detail-icon">
                                     <i class="fas fa-clock"></i>
                                 </div>
-                                <div class="contact-content">
+                                <div class="detail-content">
                                     <h4>Available</h4>
-                                    <span class="contact-link">Monday - Friday, 9AM - 6PM</span>
+                                    <p>Monday - Friday, 9AM - 6PM</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="social-links">
-                            <a href="https://github.com/Pranava-M" target="_blank" class="social-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/pranav-machireddy-554163311" target="_blank" class="social-link">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://instagram.com/p_r_a_n_a_v___m" target="_blank" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank" class="social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="mailto:machireddy12@gmail.com" class="social-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
+
+                        <div class="contact-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24h</div>
+                                <div class="stat-label">Avg Response Time</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Messages Sent</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
+
+                <div class="contact-form fade-in">
                     <div class="form-card">
-                        <h3 class="form-title">
-                            <i class="fas fa-paper-plane"></i> Send a Message
-                        </h3>
+                        <h3><i class="fas fa-paper-plane"></i> Send a Message</h3>
                         
                         <form id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="contactName">
-                                        <i class="fas fa-user"></i> Your Name
-                                    </label>
-                                    <input type="text" id="contactName" placeholder="Enter your full name" required>
-                                    <div class="form-error" id="nameError"></div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="contactEmail">
-                                        <i class="fas fa-envelope"></i> Email Address
-                                    </label>
-                                    <input type="email" id="contactEmail" placeholder="Enter your email" required>
-                                    <div class="form-error" id="emailError"></div>
-                                </div>
-                            </div>
-                            
                             <div class="form-group">
-                                <label for="contactSubject">
-                                    <i class="fas fa-tag"></i> Subject
-                                </label>
-                                <input type="text" id="contactSubject" placeholder="What is this regarding?" required>
-                                <div class="form-error" id="subjectError"></div>
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name" required>
                             </div>
-                            
+
                             <div class="form-group">
-                                <label for="contactMessage">
-                                    <i class="fas fa-comment"></i> Your Message
-                                </label>
-                                <textarea id="contactMessage" rows="6" placeholder="Type your message here..." required></textarea>
-                                <div class="form-error" id="messageError"></div>
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
                             </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                                    <i class="fas fa-paper-plane"></i> Send Message
-                                </button>
-                                <button type="button" class="btn btn-outline" id="attachFileBtn">
-                                    <i class="fas fa-paperclip"></i> Attach File
-                                </button>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" placeholder="What is this regarding?" required>
                             </div>
-                            
-                            <div class="form-success" id="formSuccess"></div>
+
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" placeholder="Type your message here..." rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="file-upload">
+                                    <label for="attachment">Attachment</label>
+                                    <div class="upload-input">
+                                        <input type="file" id="attachment" hidden>
+                                        <button type="button" class="btn btn-outline" onclick="document.getElementById('attachment').click()">
+                                            <i class="fas fa-paperclip"></i> Attach File
+                                        </button>
+                                        <span class="file-name" id="attachmentName">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
                         </form>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contact Statistics -->
-            <div class="contact-stats">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="messagesSent">0</h4>
-                        <p class="stat-label">Messages Sent</p>
-                    </div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="responseTime">24</h4>
-                        <p class="stat-label">Avg Response Time (hours)</p>
-                    </div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h4 class="stat-number" id="successRate">98</h4>
-                        <p class="stat-label">Success Rate</p>
                     </div>
                 </div>
             </div>
@@ -1260,537 +885,73 @@ portfolio.init();
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
+        <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-text">PM</span>
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>Pranav Machireddy</span>
                     </div>
-                    <div class="brand-info">
-                        <h3 class="brand-name">Pranav Machireddy</h3>
-                        <p class="brand-tagline">Building the future, one line of code at a time</p>
+                    <p class="footer-tagline">Building innovative solutions through code</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/Pranava-M" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/pranav-machireddy-554163311" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/p_r_a_n_a_v___m" target="_blank" rel="noopener" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:machireddy12@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
-                    <div class="link-group">
-                        <h4 class="link-group-title">Quick Links</h4>
-                        <a href="#home" class="footer-link">Home</a>
-                        <a href="#about" class="footer-link">About</a>
-                        <a href="#skills" class="footer-link">Skills</a>
-                        <a href="#certificates" class="footer-link">Certificates</a>
+                    <div class="link-column">
+                        <h4>Quick Links</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
                     </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-group-title">Portfolio</h4>
-                        <a href="#events" class="footer-link">Events</a>
-                        <a href="#memories" class="footer-link">Memories</a>
-                        <a href="#projects" class="footer-link">Projects</a>
-                        <a href="#contact" class="footer-link">Contact</a>
+                    <div class="link-column">
+                        <h4>Portfolio</h4>
+                        <a href="#github-projects">GitHub</a>
+                        <a href="#certificates">Certificates</a>
+                        <a href="#memories">Gallery</a>
+                        <a href="#contact">Contact</a>
                     </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-group-title">Resources</h4>
-                        <a href="#privacy" class="footer-link">Privacy Policy</a>
-                        <a href="#terms" class="footer-link">Terms of Service</a>
-                        <a href="#faq" class="footer-link">FAQ</a>
-                        <a href="#support" class="footer-link">Support</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4 class="link-group-title">Connect</h4>
-                        <a href="https://github.com/Pranava-M" target="_blank" class="footer-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/pranav-machireddy-554163311" target="_blank" class="footer-link">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="https://instagram.com/p_r_a_n_a_v___m" target="_blank" class="footer-link">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </a>
-                        <a href="mailto:machireddy12@gmail.com" class="footer-link">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
+                    <div class="link-column">
+                        <h4>Resources</h4>
+                        <a href="#" onclick="downloadResume()">Download CV</a>
+                        <a href="#" onclick="exportData()">Export Data</a>
+                        <a href="#" onclick="showAdminPanel()">Admin Panel</a>
                     </div>
                 </div>
-                
+
                 <div class="footer-newsletter">
-                    <h4 class="newsletter-title">Stay Updated</h4>
-                    <p class="newsletter-description">
-                        Subscribe to receive updates on new projects and achievements.
-                    </p>
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to my newsletter for updates</p>
                     <div class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button class="newsletter-btn">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email">
+                        <button type="button" onclick="subscribeNewsletter()" title="Subscribe to Newsletter"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <div class="copyright">
-                    © 2024 Pranav Machireddy. All rights reserved.
-                </div>
-                
-                <div class="footer-stats">
-                    <span class="stat">
-                        <i class="fas fa-code"></i> Made with ❤️ using HTML, CSS & JavaScript
-                    </span>
-                    <span class="stat">
-                        <i class="fas fa-bolt"></i> Version 3.0.0
-                    </span>
+                <p>&copy; 2024 Pranav Machireddy. All rights reserved. <span id="visitorCount">0</span> Visitors</p>
+                <div class="footer-actions">
+                    <a href="#" onclick="toggleTheme()">Theme</a>
+                    <a href="#" onclick="scrollToTop()">Top</a>
+                    <a href="#" onclick="refreshData()">Refresh</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-actions">
-        <button class="floating-btn main-btn" id="mainFloatingBtn" title="Quick Actions">
-            <i class="fas fa-plus"></i>
-        </button>
-        
-        <div class="floating-menu">
-            <button class="floating-btn" title="Upload Certificate" onclick="scrollToSection('certificates')">
-                <i class="fas fa-certificate"></i>
-            </button>
-            <button class="floating-btn" title="Add Event" onclick="scrollToSection('events')">
-                <i class="fas fa-calendar-plus"></i>
-            </button>
-            <button class="floating-btn" title="Add Memory" onclick="scrollToSection('memories')">
-                <i class="fas fa-camera"></i>
-            </button>
-            <button class="floating-btn" title="Contact" onclick="scrollToSection('contact')">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" title="Scroll to top">
+    <!-- Scroll to Top -->
+    <button type="button" class="scroll-top" id="scrollTop" title="Scroll to Top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Modals -->
-    
-    <!-- Certificate Upload Modal -->
-    <div class="modal" id="certificateModal">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h2 class="modal-title">
-                    <i class="fas fa-certificate"></i> Upload Certificate
-                </h2>
-                <button class="modal-close" id="closeCertificateModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="certificateForm">
-                    <div class="form-group">
-                        <label for="certificateTitle">Certificate Title *</label>
-                        <input type="text" id="certificateTitle" placeholder="e.g., AWS Solutions Architect" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="certificateIssuer">Issuing Organization *</label>
-                            <input type="text" id="certificateIssuer" placeholder="e.g., Amazon Web Services" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="certificateDate">Issue Date *</label>
-                            <input type="date" id="certificateDate" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="certificateCategory">Category</label>
-                            <select id="certificateCategory">
-                                <option value="academic">Academic</option>
-                                <option value="professional">Professional</option>
-                                <option value="online">Online Course</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="competition">Competition</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="certificateCredential">Credential ID</label>
-                            <input type="text" id="certificateCredential" placeholder="Optional credential ID">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="certificateDescription">Description</label>
-                        <textarea id="certificateDescription" rows="3" placeholder="Brief description of the certificate"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="certificateFile">Upload Certificate *</label>
-                        <div class="file-upload-area" id="certificateFileUpload">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & drop certificate file or click to browse</p>
-                            <p class="file-hint">Supports: JPG, PNG, PDF (Max 10MB)</p>
-                            <input type="file" id="certificateFile" accept=".jpg,.jpeg,.png,.pdf" required style="display: none;">
-                        </div>
-                        <div class="file-preview" id="certificatePreview"></div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-outline" id="cancelCertificate">Cancel</button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-upload"></i> Upload Certificate
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Event Creation Modal -->
-    <div class="modal" id="eventModal">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h2 class="modal-title">
-                    <i class="fas fa-calendar-plus"></i> Add New Event
-                </h2>
-                <button class="modal-close" id="closeEventModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="eventForm">
-                    <div class="form-group">
-                        <label for="eventTitle">Event Title *</label>
-                        <input type="text" id="eventTitle" placeholder="e.g., Tech Conference 2024" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="eventStartDate">Start Date *</label>
-                            <input type="datetime-local" id="eventStartDate" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="eventEndDate">End Date *</label>
-                            <input type="datetime-local" id="eventEndDate" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="eventType">Event Type</label>
-                            <select id="eventType">
-                                <option value="conference">Conference</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="meetup">Meetup</option>
-                                <option value="hackathon">Hackathon</option>
-                                <option value="webinar">Webinar</option>
-                                <option value="competition">Competition</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="eventRole">Your Role</label>
-                            <select id="eventRole">
-                                <option value="attendee">Attendee</option>
-                                <option value="speaker">Speaker</option>
-                                <option value="organizer">Organizer</option>
-                                <option value="volunteer">Volunteer</option>
-                                <option value="participant">Participant</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="eventLocation">Location</label>
-                        <input type="text" id="eventLocation" placeholder="e.g., Virtual, Bangalore, India">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="eventDescription">Event Description *</label>
-                        <textarea id="eventDescription" rows="4" placeholder="Describe the event, key takeaways, etc." required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="eventLink">Event Link</label>
-                        <input type="url" id="eventLink" placeholder="https://event-website.com">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="eventImages">Upload Photos</label>
-                        <div class="file-upload-area" id="eventImagesUpload">
-                            <i class="fas fa-images"></i>
-                            <p>Drag & drop event photos or click to browse</p>
-                            <p class="file-hint">Supports: JPG, PNG (Max 5MB each)</p>
-                            <input type="file" id="eventImages" accept="image/*" multiple style="display: none;">
-                        </div>
-                        <div class="file-preview grid" id="eventImagesPreview"></div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-outline" id="cancelEvent">Cancel</button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-plus-circle"></i> Add Event
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Memory Upload Modal -->
-    <div class="modal" id="memoryModal">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h2 class="modal-title">
-                    <i class="fas fa-images"></i> Add Memory
-                </h2>
-                <button class="modal-close" id="closeMemoryModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="memoryForm">
-                    <div class="form-group">
-                        <label for="memoryTitle">Memory Title *</label>
-                        <input type="text" id="memoryTitle" placeholder="e.g., Team Offsite 2024" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="memoryDate">Date *</label>
-                            <input type="date" id="memoryDate" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="memoryCategory">Category</label>
-                            <select id="memoryCategory">
-                                <option value="events">Events</option>
-                                <option value="projects">Projects</option>
-                                <option value="team">Team</option>
-                                <option value="travel">Travel</option>
-                                <option value="achievements">Achievements</option>
-                                <option value="personal">Personal</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="memoryDescription">Description</label>
-                        <textarea id="memoryDescription" rows="3" placeholder="Share the story behind this memory..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="memoryTags">Tags</label>
-                        <input type="text" id="memoryTags" placeholder="e.g., team, celebration, success">
-                        <small class="form-hint">Separate tags with commas</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="memoryFiles">Upload Photos/Videos *</label>
-                        <div class="file-upload-area" id="memoryFilesUpload">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & drop files or click to browse</p>
-                            <p class="file-hint">Supports: JPG, PNG, GIF, MP4 (Max 20MB each)</p>
-                            <input type="file" id="memoryFiles" accept="image/*,video/*" multiple required style="display: none;">
-                        </div>
-                        <div class="file-preview grid" id="memoryFilesPreview"></div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-outline" id="cancelMemory">Cancel</button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Save Memory
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Image Preview Modal -->
-    <div class="modal" id="imagePreviewModal">
-        <div class="modal-content fullscreen">
-            <div class="modal-header">
-                <button class="modal-close" id="closeImagePreview">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="image-info">
-                    <h3 id="previewImageTitle"></h3>
-                    <p id="previewImageDate"></p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="image-container">
-                    <img id="previewImage" src="" alt="">
-                </div>
-                <div class="image-controls">
-                    <button class="control-btn" id="prevImage">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="control-btn" id="nextImage">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <button class="control-btn" id="downloadImage">
-                        <i class="fas fa-download"></i>
-                    </button>
-                    <button class="control-btn" id="shareImage">
-                        <i class="fas fa-share-alt"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification System -->
-    <div class="notification-container" id="notificationContainer">
-        <!-- Notifications will be dynamically added here -->
-    </div>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
-    
-    <script>
-        // Preloader
-        document.addEventListener('DOMContentLoaded', function() {
-            const preloader = document.getElementById('preloader');
-            const preloaderBar = document.getElementById('preloaderBar');
-            const initStep = document.getElementById('initStep');
-            
-            const steps = [
-                'Loading Components...',
-                'Initializing Portfolio...',
-                'Setting Up Features...',
-                'Almost Ready...'
-            ];
-            
-            let progress = 0;
-            let stepIndex = 0;
-            
-            const interval = setInterval(() => {
-                progress += Math.random() * 15;
-                
-                if (progress > 25 && stepIndex === 0) {
-                    initStep.textContent = steps[1];
-                    stepIndex++;
-                } else if (progress > 50 && stepIndex === 1) {
-                    initStep.textContent = steps[2];
-                    stepIndex++;
-                } else if (progress > 75 && stepIndex === 2) {
-                    initStep.textContent = steps[3];
-                    stepIndex++;
-                }
-                
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    
-                    setTimeout(() => {
-                        preloader.classList.add('hidden');
-                        
-                        setTimeout(() => {
-                            preloader.style.display = 'none';
-                            
-                            // Initialize AOS after preloader
-                            if (typeof AOS !== 'undefined') {
-                                AOS.init({
-                                    duration: 1000,
-                                    once: true,
-                                    offset: 100,
-                                    delay: 100
-                                });
-                            }
-                            
-                            // Show welcome notification
-                            showNotification('🎉 Welcome to Portfolio v3.0! Explore all features.', 'success');
-                            
-                        }, 500);
-                    }, 500);
-                }
-                
-                preloaderBar.style.width = `${progress}%`;
-                
-            }, 100);
-        });
-        
-        // Show notification function
-        function showNotification(message, type = 'info') {
-            const container = document.getElementById('notificationContainer');
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                    <span>${message}</span>
-                </div>
-                <button class="notification-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                notification.classList.add('fade-out');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }, 5000);
-            
-            // Close button
-            notification.querySelector('.notification-close').addEventListener('click', () => {
-                notification.classList.add('fade-out');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            });
-        }
-        
-        // Quick actions
-        document.getElementById('quickUpload').addEventListener('click', () => {
-            document.getElementById('certificateModal').style.display = 'flex';
-        });
-        
-        document.getElementById('quickAddEvent').addEventListener('click', () => {
-            document.getElementById('eventModal').style.display = 'flex';
-        });
-        
-        document.getElementById('quickAddMemory').addEventListener('click', () => {
-            document.getElementById('memoryModal').style.display = 'flex';
-        });
-        
-        document.getElementById('quickContact').addEventListener('click', () => {
-            scrollToSection('contact');
-        });
-        
-        // Scroll to section function
-        window.scrollToSection = function(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                window.scrollTo({
-                    top: section.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        };
-        
-        // Download resume function
-        window.downloadResume = function() {
-            showNotification('📄 Downloading resume...', 'info');
-            // Simulate download
-            setTimeout(() => {
-                showNotification('✅ Resume downloaded successfully!', 'success');
-            }, 1500);
-        };
-    </script>
 </body>
 </html>
