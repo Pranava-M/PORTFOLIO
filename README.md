@@ -1,5 +1,4 @@
 # 🌟 Interactive Personal Portfolio Website
-
 <!-- ================= HERO IMAGE ================= -->
 
 <!-- Upload your main banner / portfolio preview image below -->
